@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shopee-short"
+version = "0.1.0"
+description = "CLI para gerar shorts verticais de produto Shopee sem acessar domínios Shopee."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "requests>=2.31,<3",
+  "Pillow>=10,<13",
+  "ddgs>=9,<10",
+  "yt-dlp>=2025.1.15",
+  "piper-tts>=1.2,<2",
+  "faster-whisper>=1.1,<2",
+  "av>=11,<18",
+  "num2words>=0.5.12",
+]
+
+[project.scripts]
+shopee-short = "shopee_short.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
